@@ -1,31 +1,30 @@
-var alkuarvot = {video: { facingMode:"user"}, audio: false};
+var alkuarvot = {video: {facingMode: "user"}, audio: false};
 var track = null;
 
-const kamerakuva = document.getElementById("kamerakuva"),
-kuvasijainti = document.getElementById("kuvasijainti"),
-kameracanvas = document.getElementById("kameracanvas"),
-laukaisin = document.getElementById("laukaisin"),
+var kamerakuva = document.getElementById("kamerakuva");
+var kuvasijainti = document.getElementById("kuvasijainti");
+var kameracanvas = document.getElementById("kameracanvas");
+var laukaisin = document.getElementById("laukaisin");
 
-audio = document.getElementById("audio");
-
-function cameraStart(){
-    if(navigator.mediaDevices){
-   navigator.mediaDevices.getUserMedia(alkuarvot).then(function(virta) {track = virta.getTracks()[0];  kamerakuva.srcObject = virta})
-    
-   .catch(function(error){
-        consoler.error("hupsista");
-    })
+function cameraStarttaa(){
+    navigator.mediaDevices.getUserMedia(alkuarvot)
+    .then(function(kuvavirta){ kamerakuva.srcObject = kuvavirta; })
+    .catch(function(error){console.log("huppista")})
 }
-    navigator.mediaDevices.enumerateDevices().then(function(devices) {devices.forEach(function(device) {console.log(device.kind + " " + device.label) })})
 
-}
-laukaisin.onclick = function(){
-    kameracanvas.width = kamerakuva.videoWidth;
-    kameracanvas.height = kamerakuva.videoHeight;
+laukaisin.onclick =  function(){
+    kameracanvas.width= kamerakuva.videoWidth;
+    kameracanvas.height= kamerakuva.videoHeight;
     kameracanvas.getContext("2d").drawImage(kamerakuva, 0,0);
     kuvasijainti.src = kameracanvas.toDataURL("image/png");
-    
+    kameracanvas.hidden = true;
+   // kuvasijainti.classList.add("kuvattu");
+  // kuvasijainti.id = "otto";
+  kuvasijainti.style.width = "100px";
+  kuvasijainti.style.height = "100px"
+  console.log(kuvasijainti.style.width);
 
-};
+}
 
-window.addEventListener("load", cameraStart, false)
+window.addEventListener("load", cameraStarttaa);
+

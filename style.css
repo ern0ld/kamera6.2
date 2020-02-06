@@ -5,7 +5,7 @@ html, body{
     width: 100%;
   }
   
-  #kamera, #kamerakuva, #kameracanvas, #kuvasijainti{
+ /* #kamera, #kamerakuva, #kameracanvas, #kuvasijainti{
       position: fixed;
       height: 100%;
       width: 100%;
@@ -30,20 +30,26 @@ html, body{
       position: fixed;
       bottom: 30px;
       left: calc(50% - 100px);
-  }
+  }*/
+ /* .kuvattu{
+    height: 100px!important;
+    width: 100px!important;
+    position: absolute;
+    top: 100px;
+  }*/
   #otto{
    
     height: 100px!important;
     width: 100px!important;
-    transition: all 0.5s ease-in;
+    /*transition: all 0.5s ease-in;
     border: solid 3px white;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
     top: 200px;
   right: 200px;
-    z-index: 2;
+    z-index: 2;*/
 }
 
-.otettu{
+/*.otettu{
    
       height: 100px!important;
       width: 100px!important;
@@ -53,4 +59,4 @@ html, body{
       top: 200px;
     right: 200px;
       z-index: 2;
-  }
+  }*/
